@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tech Blog</title>
+
+    <!--Bootstrap CSS and JS-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!--Additional CSS styling-->
+    <link rel="stylesheet" href="../../public/css/jass.css">
+
+    <!--Google fonts-->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+        <a class="navbar-brand" href="#">Tech Blog</a>
+
+        <!-- Toggler/collapsibe Button -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!--Nav list-->
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="">Home</a>
+                </li>
+                {{#if logged_out}}
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Login</a>
+                </li>
+                {{/if}}
+                {{#if logged_in}}
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Post</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Logout</a>
+                </li>
+                {{/if}}
+            </ul>
+        </div>
+    </nav>
+
+    <section>
+        {{{ body }}}
+    </section>
+
+
+
+
+    <br>
+    <br>
+    <br>
+
+    <!-- Footer section-->
+    <footer class="footer d-flex flex-column bg-dark">
+        <p class="footer-copyright text-center small py-1">Copyright © Alisha Saleh <br>
+            <a id="footer-ref" href='https://www.freepik.com/vectors/background'>Background vector created by
+                visnezh</a>
+        </p>
+    </footer>
+
+    {{#if logged_in}}
+    <script src="../../public/js/logout.js"></script>
+    {{/if}}
+</body>
+
+</html>
