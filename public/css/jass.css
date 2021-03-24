@@ -12,10 +12,10 @@ p {
     color:#EAEAEA;
 }
 
-h1, h3 {
+/* h1, h2, h3, h4, h5, h6 {
     border-bottom: white 1px solid;
 
-}
+} */
 
 /* navbar styling */
 .navbar-brand:hover {
