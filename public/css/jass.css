@@ -17,6 +17,10 @@ p {
 
 } */
 
+#signuplink {
+    color: #bbbbbb;
+}
+
 /* navbar styling */
 .navbar-brand:hover {
     letter-spacing: 0.2em;

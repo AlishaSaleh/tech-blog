@@ -35,7 +35,7 @@
         <div class="collapse navbar-collapse" id="collapsibleNavbar">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="">Home</a>
+                    <a class="nav-link active" aria-current="page" href="/">Home</a>
                 </li>
                 {{#if logged_out}}
                 <li class="nav-item">
@@ -43,7 +43,7 @@
                 </li>
                 {{else}}
                 <li class="nav-item">
-                    <a class="nav-link" href="/profile">Profile</a>
+                    <a class="nav-link" href="/profile">Dashboard</a>
                 </li>
                 <li class="nav-item">
                      <button class="btn btn-dark" id="logout">Logout</button>
@@ -75,7 +75,7 @@
     </footer>
 
     {{#if logged_in}}
-    <script src="../../public/js/logout.js"></script>
+    <script src="/js/logout.js"></script>
     {{/if}}
 </body>
 
