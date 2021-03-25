@@ -12,10 +12,13 @@ p {
     color:#EAEAEA;
 }
 
-/* h1, h2, h3, h4, h5, h6 {
+/* h1, h2, h3, h4, h5 {
     border-bottom: white 1px solid;
 
 } */
+.bg-blogs {
+    background-color:#EAEAEA;
+}
 
 #signuplink {
     color: #bbbbbb;
@@ -33,4 +36,12 @@ p {
 /* footer styling */
 #footer-ref {
     color: #6C757D;
+}
+
+footer {
+    z-index: 1;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
 }
