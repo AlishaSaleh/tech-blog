@@ -2,8 +2,27 @@ const router = require('express').Router();
 const { Blog, User } = require('../../models');
 const withAuth = require('../../utils/auth');
 
+// router.get('/edit/:id', withAuth, async (req, res) => {
+//   console.log("here")
+//   try {
+//     const editBlogData = await Blog.findByPk(req.params.id);
 
+//     if (!editBlogData) {
+//       res.status(404).json({ message: 'No blog found with this id!' });
+//       return;
+//     }
 
+//     const edit = editBlogData.get({ plain: true });
+
+//     res.render('edit', {
+//       edit,
+//       logged_in: req.session.logged_in
+//     });
+
+//   } catch (err) {
+//     res.status(500).json(err);
+//   }
+// });
 
 router.get('/:id', withAuth, async (req, res) => {
   try {
