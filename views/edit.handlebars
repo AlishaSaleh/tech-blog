@@ -1,0 +1,39 @@
+<div class="row mt-4">
+  <div class="col-md-4 text-white bg-secondary p-3">
+    <h3>Edit your blog post:</h3>
+ <p>{{name}}  {{description}}</p>
+    <form class="form edit-blog-form">
+      <div class="form-group">
+        <label for="edit-blog-title">Title:</label>
+        <br>
+        <input class="form-input" type="text" id="edit-blog-title" name="blog-title" value="{{blogs.name}}"/>
+      </div>
+      <div class="form-group">
+        <label for="edit-blog-body">Post:</label>
+        <br>
+        <textarea class="form-input" type="text" id="edit-blog-body" name="blog-body" value="{{blogs.description}}"></textarea>
+        
+      </div>
+      <div class="form-group">
+        <button type="submit" class="btn btn-dark" id="update-edit">Update</button>
+      </div>
+    </form>
+  </div>
+
+  {{!-- <article>
+  <h2 class="title mt-5">edit post</h2><hr>
+  <form class="edit-blog-form">
+    <div>
+        <label for="edit-blog-title">post title:</label>
+      <input class="input" name="edit-blog-title" type="text" value="{{blogs.name}}" />
+    </div>
+    <div>
+        <label for="edit-blog-body">post content:</label>
+      <input class="textarea" name="edit-blog-body" type="text" value="{{blogs.description}}" />
+    </div>
+    <button type="submit" class="button is-success">save post</button>
+    <button type="button" class="button is-danger delete-post-btn">delete post</button>
+  </form>
+</article> --}}
+
+  <script src="./js/edit.js"></script>
