@@ -1,12 +1,20 @@
 const router = require('express').Router();
-const { Blog, User } = require('../models');
+const { Blog, User, Comment } = require('../models');
 const withAuth = require('../utils/auth');
 
+// Gets all blogs
 router.get('/', async (req, res) => {
   try {
-    // Get all blogs and JOIN with user data
     const blogData = await Blog.findAll({
       include: [
+        // Get all comments from blog post
+        {
+          model: Comment,
+          include: {
+            model: User,
+            attributes: ['name'],
+          }
+        },
         {
           model: User,
           attributes: ['name'],
@@ -27,10 +35,19 @@ router.get('/', async (req, res) => {
   }
 });
 
+// Gets blog post by primary key
 router.get('/blogs/:id', async (req, res) => {
   try {
     const blogData = await Blog.findByPk(req.params.id, {
       include: [
+        // Get all comments from blog post
+        {
+          model: Comment,
+          include: {
+            model: User,
+            attributes: ['name'],
+          }
+        },
         {
           model: User,
           attributes: ['name'],
@@ -49,7 +66,7 @@ router.get('/blogs/:id', async (req, res) => {
   }
 });
 
-// Use withAuth middleware to prevent access to route
+// Gets profile page withAuth middleware to prevent access to route
 router.get('/profile', withAuth, async (req, res) => {
   try {
     // Find the logged in user based on the session ID
@@ -69,8 +86,9 @@ router.get('/profile', withAuth, async (req, res) => {
   }
 });
 
+// Gets login page
 router.get('/login', (req, res) => {
-  // If the user is already logged in, redirect the request to another route
+  // If the user is already logged in, redirect the request to profile/dashboard
   if (req.session.logged_in) {
     res.redirect('/profile');
     return;
@@ -79,8 +97,9 @@ router.get('/login', (req, res) => {
   res.render('login');
 });
 
+// Gets signup page
 router.get('/signup', (req, res) => {
-  // Route to signup page
+  // If logged in the redirect to profile/dashboard
   if (req.session.logged_in) {
     res.redirect('/profile');
     return;
@@ -89,6 +108,7 @@ router.get('/signup', (req, res) => {
   res.render('signup');
 });
 
+// Gets edit page for specific blog post
 router.get('/blogs/edit/:id', withAuth, async (req, res) => {
   console.log("here");
   try {

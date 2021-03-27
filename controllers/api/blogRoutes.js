@@ -1,33 +1,20 @@
 const router = require('express').Router();
-const { Blog, User } = require('../../models');
+const { Blog, User, Comment } = require('../../models');
 const withAuth = require('../../utils/auth');
 
-// router.get('/edit/:id', withAuth, async (req, res) => {
-//   console.log("here")
-//   try {
-//     const editBlogData = await Blog.findByPk(req.params.id);
-
-//     if (!editBlogData) {
-//       res.status(404).json({ message: 'No blog found with this id!' });
-//       return;
-//     }
-
-//     const edit = editBlogData.get({ plain: true });
-
-//     res.render('edit', {
-//       edit,
-//       logged_in: req.session.logged_in
-//     });
-
-//   } catch (err) {
-//     res.status(500).json(err);
-//   }
-// });
-
+// Gets specific blog posts by primary key - is this route needed?? who knows
 router.get('/:id', withAuth, async (req, res) => {
   try {
     const blogData = await Blog.findByPk(req.params.id, {
       include: [
+        // Get all comments from blog post
+        {
+          model: Comment,
+          include: {
+            model: User,
+            attributes: ['name'],
+          }
+        },
         {
           model: User,
           attributes: ['name'],
@@ -48,6 +35,7 @@ router.get('/:id', withAuth, async (req, res) => {
   }
 });
 
+// Creates a new blog post from th dashboard/profile page
 router.post('/', withAuth, async (req, res) => {
   try {
     const newBlog = await Blog.create({
@@ -61,6 +49,7 @@ router.post('/', withAuth, async (req, res) => {
   }
 });
 
+// Delete blog post from dashboard/profile
 router.delete('/:id', withAuth, async (req, res) => {
   try {
     const blogData = await Blog.destroy({
@@ -81,6 +70,7 @@ router.delete('/:id', withAuth, async (req, res) => {
   }
 });
 
+// Update blog post from blog post page
 router.put('/edit/:id', withAuth, async (req, res) => {
   try {
     const blogData = await Blog.update({
@@ -104,6 +94,5 @@ router.put('/edit/:id', withAuth, async (req, res) => {
     res.status(500).json(err);
   }
 });
-
 
 module.exports = router;

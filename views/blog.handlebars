@@ -1,20 +1,20 @@
 <div class="row">
-<div class="col-md-8 p-3 bg-blogs">
-    <h2>{{name}}
-        <a href="/blogs/edit/{{id}}"><button class="btn btn-sm btn-warning float-right" id="edit-btn" data-id="{{id}}"><i
-            class="fa fa-edit"></i></button></a>
-</h2>
+    <div class="col-md-8 p-3 bg-blogs">
+        <h2>{{name}}
+            <a href="/blogs/edit/{{id}}"><button class="btn btn-sm btn-warning float-right" id="edit-btn"
+                    data-id="{{id}}"><i class="fa fa-edit"></i></button></a>
+        </h2>
 
-    <div class="row">
-      <div class="col-md-8">
-        <p class="text-secondary">{{description}}</p>
-      </div>
+        <div class="row">
+            <div class="col-md-8">
+                <p class="text-secondary">{{description}}</p>
+            </div>
+        </div>
+
     </div>
-    
-</div>
 </div>
 <div class="row">
-      <div class="col-md-8 bg-dark">
+    <div class="col-md-8 bg-dark">
         <p class="text-secondary pt-2 text-right">posted by {{user.name}} on {{format_date date_created}}</p>
-      </div>
     </div>
+</div>
