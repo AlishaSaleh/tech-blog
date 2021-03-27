@@ -90,7 +90,7 @@ router.get('/signup', (req, res) => {
 });
 
 router.get('/blogs/edit/:id', withAuth, async (req, res) => {
-  console.log("here")
+  console.log("here");
   try {
     const editBlogData = await Blog.findByPk(req.params.id, {
       include: [
@@ -107,12 +107,12 @@ router.get('/blogs/edit/:id', withAuth, async (req, res) => {
     }
 
     const edit = editBlogData.get({ plain: true });
-
+    console.log("here");
     res.render('edit', {
       edit,
       logged_in: req.session.logged_in
     });
-
+    console.log("here");
   } catch (err) {
     res.status(500).json(err);
   }

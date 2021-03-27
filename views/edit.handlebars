@@ -1,18 +1,18 @@
 <div class="row mt-4">
     <div class="col-md-4 text-white bg-secondary p-3">
         <h3>Edit your blog post:</h3>
-        <h2>{{blogs.name}} {{blogs.description}}</h2>
         <form class="form edit-blog-form">
             <div class="form-group">
                 <label for="edit-blog-title">Title:</label>
                 <br>
-                <input class="form-input" type="text" id="edit-blog-title" name="blog-title" value="{{blogs.name}}" />
+                <input class="form-input" type="text" id="edit-blog-title" name="edit-blog-title" value="{{edit.name}}" />
             </div>
             <div class="form-group">
                 <label for="edit-blog-body">Post:</label>
                 <br>
-                <textarea class="form-input" type="text" id="edit-blog-body" name="blog-body"
-                    value="{{blogs.description}}"></textarea>
+                {{!-- <textarea class="form-input" type="text" id="edit-blog-body" name="blog-body"
+                    value="{{edit.description}}"></textarea> --}}
+                     <input class="form-input"  type="text" id="edit-blog-body" name="edit-blog-body" value="{{edit.description}}"></input>
 
             </div>
             <div class="form-group">
