@@ -83,7 +83,11 @@ router.delete('/:id', withAuth, async (req, res) => {
 
 router.put('/edit/:id', withAuth, async (req, res) => {
   try {
-    const blogData = await Blog.update(req.body, {
+    const blogData = await Blog.update({
+      name: req.body.name,
+      description: req.body.description
+    },
+    {
       where: {
         id: req.params.id,
         user_id: req.session.user_id,

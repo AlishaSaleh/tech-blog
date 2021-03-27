@@ -15,7 +15,12 @@ const hbs = exphbs.create({ helpers });
 
 const sess = {
   secret: 'Super secret secret',
-  cookie: {},
+  cookie: {
+      // add maxAge here
+      // activitiy 24 for ref
+      // session needs to be destroyed in routes
+      // req.session.cookie.maxAge
+  },
   resave: false,
   saveUninitialized: true,
   store: new SequelizeStore({
