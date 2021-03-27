@@ -92,7 +92,14 @@ router.get('/signup', (req, res) => {
 router.get('/blogs/edit/:id', withAuth, async (req, res) => {
   console.log("here")
   try {
-    const editBlogData = await Blog.findByPk(req.params.id);
+    const editBlogData = await Blog.findByPk(req.params.id, {
+      include: [
+        {
+          model: User,
+          attributes: ['name'],
+        },
+      ],
+    });
 
     if (!editBlogData) {
       res.status(404).json({ message: 'No blog found with this id!' });
