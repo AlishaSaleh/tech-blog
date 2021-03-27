@@ -95,4 +95,19 @@ router.put('/edit/:id', withAuth, async (req, res) => {
   }
 });
 
+// Post comment
+router.post('/:id', withAuth, async (req, res) => {
+  try {
+    const newComment = await Comment.create({
+      text: req.body.text,
+      user_id: req.session.user_id,
+      blog_id: req.body.id,
+    });
+
+    res.status(200).json(newComment);
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
+
 module.exports = router;
