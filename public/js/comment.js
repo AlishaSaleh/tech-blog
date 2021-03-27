@@ -15,15 +15,16 @@ const addCommentHandler = async (event) => {
             'Content-Type': 'application/json',
         },
     });
-
+console.log(response);
     if (response.ok) {
         alert('Success!');
-        location.reload();
+        //location.reload();
         // return false; // ???
     } else {
         alert('Failed to add comment');
     }
-
+const message = await response.json();
+console.log(message);
 };
 
 document

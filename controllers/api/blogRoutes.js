@@ -114,7 +114,8 @@ router.post('/:id', withAuth, async (req, res) => {
 // router.get('/', async (req, res) => {
 //   try {
 //     const commentData = await Comment.findAll();
-//     const comment = commentData.map((comment) => comment.get({ plain: true }));
+//     // const comment = commentData.map((comment) => comment.get({ plain: true }));
+//     res.status(200).json(commentData);
   
 //   } catch (err) {
 //     res.status(500).json(err);
