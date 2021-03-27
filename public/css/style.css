@@ -28,6 +28,10 @@ p {
     color: #bbbbbb;
 }
 
+#comment-name{
+    font-size: smaller;
+}
+
 /* navbar styling */
 .navbar-brand:hover {
     letter-spacing: 0.2em;

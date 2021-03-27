@@ -7,15 +7,15 @@ const addCommentHandler = async (event) => {
 
     const response = await fetch(`/api/blogs/${id}`, {
         method: 'POST',
-        body: JSON.stringify({ 
+        body: JSON.stringify({
             id: id,
             text: text
-         }),
+        }),
         headers: {
             'Content-Type': 'application/json',
         },
     });
-console.log(response);
+    console.log(response);
     if (response.ok) {
         alert('Success!');
         //location.reload();
@@ -23,8 +23,8 @@ console.log(response);
     } else {
         alert('Failed to add comment');
     }
-const message = await response.json();
-console.log(message);
+    const message = await response.json();
+    console.log(message);
 };
 
 document
