@@ -2,7 +2,7 @@
 
 ## Description 
 
-This full-stack project involved creating a CMS-style bloggin site following the MVC architectural paradigm. The website allows users to create an account, create blog posts, edit and delete blog posts, and comment on blog posts. When a user has been inactive for 60 minutes, the session timesout and the user is automatically logged out. Features and technologies of this project include:
+This full-stack project involved creating a CMS-style bloggin site following the MVC architectural paradigm. The website allows users to create an account, create blog posts, edit and delete blog posts, and comment on blog posts. When a user has been inactive for 20 minutes, the session timesout and the user is automatically logged out. Features and technologies of this project include:
 * Sequelize and ORM
 * Express (including sessions) 
 * Express Handlebars for views
