@@ -16,10 +16,11 @@ const hbs = exphbs.create({ helpers });
 const sess = {
   secret: 'Super secret secret',
   cookie: {
-      maxAge: 20000
+     maxAge: 1200000
       // maxAge logs the user out after 20 minutes
   },
   resave: false,
+  rolling: true,
   saveUninitialized: true,
   store: new SequelizeStore({
     db: sequelize
