@@ -16,10 +16,8 @@ const hbs = exphbs.create({ helpers });
 const sess = {
   secret: 'Super secret secret',
   cookie: {
-      // add maxAge here
-      // activitiy 24 for ref
-      // session needs to be destroyed in routes
-      // req.session.cookie.maxAge
+      maxAge: 20000
+      // maxAge logs the user out after 20 minutes
   },
   resave: false,
   saveUninitialized: true,

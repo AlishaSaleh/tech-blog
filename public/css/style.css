@@ -32,6 +32,14 @@ p {
     font-size: smaller;
 }
 
+input {
+    width: 100%;
+}
+
+textarea {
+    width: 100%;
+}
+
 /* navbar styling */
 .navbar-brand:hover {
     letter-spacing: 0.2em;

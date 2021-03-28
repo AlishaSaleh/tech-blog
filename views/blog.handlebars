@@ -1,8 +1,11 @@
 <div class="row">
     <div class="col-md-8 p-3 bg-blogs">
         <h2>{{name}}
+            {{!-- Conditional statement that only allows people logged in to edit blog --}}
+            {{#if logged_in}}
             <a href="/blogs/edit/{{id}}"><button class="btn btn-sm btn-warning float-right" id="edit-btn"
                     data-id="{{id}}"><i class="fa fa-edit"></i></button></a>
+            {{/if}}
         </h2>
 
         <div class="row">
@@ -12,6 +15,7 @@
         </div>
 
     </div>
+    {{!-- Conditional statement that only allows people logged in to add comments --}}
     {{#if logged_in}}
     <div class="col-md-4 text-white bg-secondary p-3">
         <h3>Add a comment:</h3>
@@ -34,6 +38,8 @@
         <p class="text-secondary pt-2 text-right">posted by {{user.name}} on {{format_date date_created}}</p>
     </div>
 </div>
+
+{{!-- Links comments partial --}}
 
 {{> comments comments}}
 

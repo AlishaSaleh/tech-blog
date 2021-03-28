@@ -17,7 +17,7 @@ const addCommentHandler = async (event) => {
     });
     // console.log(response);
     if (response.ok) {
-        alert('Success!');
+        // alert('Success!');
         location.reload();
     } else {
         alert('Failed to add comment');
